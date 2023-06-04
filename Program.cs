@@ -28,6 +28,7 @@ int range = InputNumbers("Введите диапозон от 1 до: ");
 int [,] Array = new int[lines,columns];
 CreateArray(Array);
 PrintArray(Array);
+Console.WriteLine();
 SortArray(Array);
 PrintArray(Array);
 
