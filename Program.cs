@@ -34,23 +34,8 @@ PrintArray(Array);
 
 void SortArray(int[,] array)
 {
-    for (int z = 0; z < (columns * lines); z++)
+    for (int z = 0; z <= (columns * lines); z++)
     {
-        for (int i = 0; i < array.GetLength(0); i++)
-        {
-            for (int j = 0; j < array.GetLength(1) - 1; j++)
-            {
-                for (int k = j; k < array.GetLength(1); k++)
-                {
-                    if (array[i, j] > array[i, k])
-                    {
-                        int temp = array[i, j];
-                        array[i, j] = array[i, k];
-                        array[i, k] = temp;
-                    }
-                }
-            }
-        }
         for (int i = 0; i < array.GetLength(1); i++)
         {
             for (int j = 0; j < array.GetLength(0) - 1; j++)
@@ -62,6 +47,21 @@ void SortArray(int[,] array)
                         int temp = array[i, j];
                         array[i, j] = array[k, j];
                         array[k, j] = temp;
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            for (int j = 0; j < array.GetLength(1) - 1; j++)
+            {
+                for (int k = j; k < array.GetLength(1); k++)
+                {
+                    if (array[i, j] > array[i, k])
+                    {
+                        int temp = array[i, j];
+                        array[i, j] = array[i, k];
+                        array[i, k] = temp;
                     }
                 }
             }
