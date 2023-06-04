@@ -34,33 +34,35 @@ PrintArray(Array);
 
 void SortArray(int[,] array)
 {
-    for (int i = 0; i < array.GetLength(0); i++)
+    for (int z = 0; z < (columns * lines); z++)
     {
-        for (int j = 0; j < array.GetLength(1) - 1; j++)
+        for (int i = 0; i < array.GetLength(0); i++)
         {
-            for (int k = j; k < array.GetLength(1); k++)
+            for (int j = 0; j < array.GetLength(1) - 1; j++)
             {
-                if (array[i, j] > array[i, k])
+                for (int k = j; k < array.GetLength(1); k++)
                 {
-                    int temp = array[i, j];
-                    array[i, j] = array[i, k];
-                    array[i, k] = temp;
+                    if (array[i, j] > array[i, k])
+                    {
+                        int temp = array[i, j];
+                        array[i, j] = array[i, k];
+                        array[i, k] = temp;
+                    }
                 }
             }
         }
-    }
-
-    for (int i = 0; i < array.GetLength(1); i++)
-    {
-        for (int j = 0; j < array.GetLength(0) - 1; j++)
+        for (int i = 0; i < array.GetLength(1); i++)
         {
-            for (int k = i; k < array.GetLength(0); k++)
+            for (int j = 0; j < array.GetLength(0) - 1; j++)
             {
-                if (array[i, j] > array[k, j])
+                for (int k = i; k < array.GetLength(0); k++)
                 {
-                    int temp = array[i, j];
-                    array[i, j] = array[k, j];
-                    array[k, j] = temp;
+                    if (array[i, j] > array[k, j])
+                    {
+                        int temp = array[i, j];
+                        array[i, j] = array[k, j];
+                        array[k, j] = temp;
+                    }
                 }
             }
         }
