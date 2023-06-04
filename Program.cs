@@ -25,7 +25,7 @@
 int columns = InputNumbers("Введите количество столбцов: ");
 int lines = InputNumbers("Введите количество строк: ");
 int range = InputNumbers("Введите диапозон от 1 до: ");
-int [,] Array = new int[lines,columns];
+int[,] Array = new int[lines, columns];
 CreateArray(Array);
 PrintArray(Array);
 Console.WriteLine();
@@ -36,15 +36,31 @@ void SortArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(1) - 1; j++)
         {
-            for (int k = 0; k < array.GetLength(1) - 1; k++)
+            for (int k = j; k < array.GetLength(1); k++)
             {
-                if (array[i, k] > array[i, k + 1])
+                if (array[i, j] > array[i, k])
                 {
-                    int temp = array[i, k + 1];
-                    array[i, k + 1] = array[i, k];
+                    int temp = array[i, j];
+                    array[i, j] = array[i, k];
                     array[i, k] = temp;
+                }
+            }
+        }
+    }
+
+    for (int i = 0; i < array.GetLength(1); i++)
+    {
+        for (int j = 0; j < array.GetLength(0) - 1; j++)
+        {
+            for (int k = i; k < array.GetLength(0); k++)
+            {
+                if (array[i, j] > array[k, j])
+                {
+                    int temp = array[i, j];
+                    array[i, j] = array[k, j];
+                    array[k, j] = temp;
                 }
             }
         }
